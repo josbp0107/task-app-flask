@@ -32,16 +32,13 @@ class MainTest(TestCase):
     
     # Prueba si el envio del form o POST fue existosamente y se hizo un redirect a index
     def test_hello_post(self):
-        fake_form = {
-            'username':'fake',
-            'password':'fake-password'
-        }
-        response = self.client.post(url_for('hello'), data=fake_form )
-        self.assertRedirects(response, url_for('index'))
+        response = self.client.post(url_for('hello'))
+        
+        self.assertTrue(response.status_code, 405)
     
     # Test driver development
     def test_auth_blueprint_exists(self):
-        self.assertIn('auth', self.app.blueprint)
+        self.assertIn('auth', self.app.blueprints)
 
     # test si la respuesta es de 200 de la ruta login
     def test_auth_login_get(self):
@@ -54,3 +51,12 @@ class MainTest(TestCase):
         # auth.login -> Nos vamos a la carpeta de auth en la ruta de login
         self.client.get(url_for('auth.login'))
         self.assertTemplateUsed('login.html')
+    
+    def test_auth_login_post(self):
+        fake_form = {
+            'username':'fake',
+            'password':'fake-password'
+        }
+
+        response = self.client.post(url_for('auth.login'), data=fake_form)
+        self.assertRedirects(response, url_for('index'))
