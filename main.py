@@ -3,11 +3,10 @@ import unittest
 
 from app import create_app # Importa desde la carpeta app/__init__.py , el metodo create_app
 from app.forms import LoginForm
+from app.firestore_service import get_users, get_todos
+
 
 app = create_app() # agrega a la variable app, el proyecto de flask
-
-
-todos = ['Comprar cafe', 'Enviar solicitud de compra', 'Entregar video a productor ']
 
 
 @app.cli.command()
@@ -43,11 +42,19 @@ def hello():
 
     context = {
         'user_ip': user_ip,
-        'todos': todos,
+        'todos': get_todos(user_id=username),
         'username': username
     }
 
+    users = get_users()
+
+    for user in users:
+        print(user.id) # Imprime el id por usuario
+        # Convertimos los atributos en diccionarios, ya que las bases de datos NoSQL su estructuras es en forma de documentos
+        print(user.to_dict()['password'])
+
     return render_template('hello.html', **context)
+
 
 if __name__ == '__main__':
     app.run(debug=True) # Activar debug
