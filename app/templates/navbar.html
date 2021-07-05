@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse" role="navigation">
+<!-- <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
         
         <div class="navbar-header">
@@ -30,4 +30,53 @@
         </div>
     
     </div>
-</div>
+</div> -->
+
+
+<nav class="menu-container">
+    <!-- burger menu -->
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+  
+    <!-- logo -->
+    <a href="{{ url_for('index') }}" class="menu-logo">
+     TODO
+    </a>
+  
+    <!-- menu items -->
+    <div class="menu">
+      <ul>
+      </ul>
+      <ul>
+        <li>
+            <a href="{{ url_for('index') }}">
+              Inicio
+            </a>
+        </li>
+
+        {% if not current_user.is_authenticated %}
+        <li>
+          <a href="{{ url_for('auth.signup') }}">
+            Sign-up
+          </a>
+        </li>
+        <li>
+            <a href="{{ url_for('auth.login') }}">
+              Login
+            </a>
+          </li>
+        {% endif %}
+        
+        
+        {% if current_user.is_authenticated %}
+        <li>
+            <a href="{{ url_for('auth.logout') }}">
+                Logout
+            </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
