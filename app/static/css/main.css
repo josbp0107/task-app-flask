@@ -18,6 +18,17 @@ body {
     box-sizing: border-box;
   }
   
+  .menu-logo {
+    line-height: 0;
+    margin: 0 20px;
+  }
+  
+  .menu-logo img {
+    max-height: 40px;
+    max-width: 100px;
+    flex-shrink: 0;
+  }
+  
   .menu-container a {
     text-decoration: none;
     color: #232323;
@@ -95,6 +106,17 @@ body {
       align-items: flex-end;
     }
     
+    .menu-logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .menu-logo img {
+      max-height: 30px;
+    }
+  
     .menu {
       position: absolute;
       box-sizing: border-box;
