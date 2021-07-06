@@ -3,7 +3,7 @@ Task App Flask is a practice to create a simple application using Flask, which m
 
 It has a connection to a non-relational database which is Firestore from Google Cloud Platform.
 
-###Functionalities of the application:
+### Functionalities of the application:
 1. Register a user
 1. Login
 1. Create Task
