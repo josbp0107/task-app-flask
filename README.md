@@ -28,14 +28,14 @@ $ # Install modules
 $ pip3 install -r requirements.txt
 $
 $ # Set the FLASK_APP environment variable
-$ (Unix/Mac) export FLASK_APP=run.py
-$ (Windows) set FLASK_APP=run.py
-$ (Powershell) $env:FLASK_APP = ".\run.py"
+$ (Unix/Mac) export FLASK_APP=main.py
+$ (Windows) set FLASK_APP=main.py
+$ (Powershell) $env:FLASK_APP = ".\main.py"
 $
 $ # Set up the DEBUG environment
-$ # (Unix/Mac) export FLASK_ENV=development
-$ # (Windows) set FLASK_ENV=development
-$ # (Powershell) $env:FLASK_ENV = "development"
+$ # (Unix/Mac) export FLASK_DEBUG=1
+$ # (Windows) set FLASK_DEBUG=1
+$ # (Powershell) $env:FLASK_DEBUG = 1
 $
 $ # Start the application (development mode)
 $ # --host=0.0.0.0 - expose the app on all network interfaces (default 127.0.0.1)
