@@ -32,7 +32,7 @@ $ source env/bin/activate
 $
 $ # Virtualenv modules installation (Windows based systems)
 $ # virtualenv env
-$ # .\env\Scripts\activate
+$ .\env\Scripts\activate
 $
 $ # Install modules
 $ pip3 install -r requirements.txt
